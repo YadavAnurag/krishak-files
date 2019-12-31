@@ -1,0 +1,13 @@
+/* .sticky-footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+} */
+
+.footer > .row > :nth-child(even){
+  background-color: blue;
+}
+.footer > .row > :nth-child(odd){
+  background-color: blueviolet;
+}

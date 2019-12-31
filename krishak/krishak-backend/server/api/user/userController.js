@@ -1,18 +1,25 @@
+const User = require('./userModel')
+
+removePassword = (obj)=>{
+  let modifiedUser = {...obj._doc}
+  delete modifiedUser.password
+  delete modifiedUser.__v
+  return modifiedUser
+}
+
+
 exports.params = (req, res, next, id)=>{
-  // User.findById(id)
-  //   .then((user)=>{
-  //     if(!user){
-  //       next(new Error(`No such user with id: ${id}`))
-  //     }else{
-  //       req.user = user
-  //       next()
-  //     }
-  //   }, (err)=>{
-  //     next(err)
-  //   })
-  let user = {'name': 'something'}
-  req.user = user
-  next()
+  User.findById(id)
+    .then((user)=>{
+      if(!user){
+        next(new Error(`No such user with id: ${id}`))
+      }else{
+        req.user = user
+        next()
+      }
+    }, (err)=>{
+      next(err)
+    })
 }
 
 exports.postSignUp = (req, res, next)=>{
@@ -30,43 +37,72 @@ exports.postLogin = (req, res, next)=>{
 }
 
 exports.getUserList = (req, res, next)=>{
-  res.json({'msg': 'get users list'})
+  User.find({})
+    .exec()
+    .then((users)=>{
+      res.json(users.map((user)=>{
+        return removePassword(user)
+      }))
+    }, (err)=>{
+      next(err)
+    })
 }
-exports.postUserList = (req, res, next)=>{
-  res.json({'msg': 'post users list'})
+exports.post = (req, res, next)=>{
+  const newUser = new User(req.body) 
+  newUser.save((err, saved)=>{
+    if(err){
+      return next(err)
+    }else{
+      res.json(removePassword(saved))
+    }
+  })
 }
 exports.deleteUserList = (req, res, next)=>{
-  res.json({'msg': 'delete user list'})
+  res.json('Not working')
 }
 
 
 exports.getOne = (req, res, next)=>{
-  let user = req.body
-  res.json({'msg': 'get single user'})
-}
-
-exports.put = ((req, res, next)=>{
   let user = req.user
-  let update = req.body
-
-  newUser = {...user, ...update}
-
-  res.json({'msg': 'single user updated with new object'})
-
-})
-
+  res.json(removePassword(user))
+}
 exports.patch = ((req, res, next)=>{
   let user = req.user
   let update = req.body
-
-  newUser = {...user, ...update}
-
-  res.json({'msg': 'single user patched'})
+  Object.assign(user, update)
+  user.save((err, saved)=>{
+    if(err){
+      next(err)
+    }else{
+      res.json(removePassword(saved))
+    }
+  })  
 
 })
 
 exports.deleteOne = (req, res, next)=>{
-  res.json({'msg': 'user has been deleted successfully'})
+  req.user.remove((err, removed)=>{
+    if(err){
+      return next(err)
+    }else{
+      res.json(removePassword(removed))
+    }
+  })
 }
 
+exports.me = (req, res)=>{
+  const email = req.body.email
+  console.log(email)
+  User.find({
+    email: email
+  }).exec()
+    .then((user)=>{
+      console.log(user)
+      if(!user){
+        res.json(new Error(`No such user`))
+      }else{
+        res.json(removePassword(user))
+      }
+    })
+}
 

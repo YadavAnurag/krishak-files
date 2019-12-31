@@ -4,6 +4,8 @@ import axios from 'axios'
 
 const PATH_BASE = 'http://localhost:6001/api/users/'
 
+
+
 class SignUp extends Component{
 
   constructor(props){
@@ -191,7 +193,7 @@ const SignUpForm = ({
       <form onSubmit={onSignUpSubmit}>
         <div className="form-row">
           <div className="col-md-4 mb-3">
-            <label htmlFor="fullName">Full name</label>
+            <label htmlFor="fullName">Full Name</label>
             <input 
               type="text" 
               className='form-control is-valid' 

@@ -1,22 +1,130 @@
-nav{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: blue;
+.navigation-bar{
+  text-align: right;
+  width: 100%;
+  height: 2.6rem;
+  background-color: chocolate;
+}
+.sticky{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.sticky + .content{
+  padding-top: 1rem;
 }
 
-.navLinks{
-  width: 40%;
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
-  align-items: center;
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .navigation-bar-brand-div{
+    background-color: darkred;
+    width: 15%;
+  }
+  
+  .navigation-bar-form-div{
+    background-color: indigo;
+    width: 65%;
+  }
+  
+  .navigation-bar-right-div{
+    background-color: deeppink;
+    width: 20%;
+  }
 }
 
-.footer div Link span:nth-child(odd) {
-  background: chartreuse;
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .navigation-bar-brand-div{
+    background-color: darkred;
+    width: 20%;
+  }
+  
+  .navigation-bar-form-div{
+    background-color: indigo;
+    width: 60%;
+  }
+  
+  .navigation-bar-right-div{
+    background-color: deeppink;
+    width: 20%;
+  }
 }
-.footer:nth-child(even) {
-  background: cyan;
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .navigation-bar-brand-div{
+    background-color: darkred;
+    width: 20%;
+  }
+  
+  .navigation-bar-form-div{
+    background-color: indigo;
+    width: 60%;
+  }
+  
+  .navigation-bar-right-div{
+    background-color: deeppink;
+    width: 20%;
+  }
 }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+  .navigation-bar-brand-div{
+    background-color: darkred;
+    width: 20%;
+  }
+  
+  .navigation-bar-form-div{
+    background-color: indigo;
+    width: 60%;
+  }
+  
+  .navigation-bar-right-div{
+    background-color: deeppink;
+    width: 20%;
+  }
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .navigation-bar-brand-div{
+    background-color: darkred;
+    width: 20%;
+  }
+  
+  .navigation-bar-form-div{
+    background-color: indigo;
+    width: 60%;
+  }
+  
+  .navigation-bar-right-div{
+    background-color: deeppink;
+    width: 20%;
+  }
+}
+
+
+/* .navigation-bar-brand-div{
+  
+} */
+.navigation-bar-brand-a{
+  color: black;
+}
+.navigation-bar-form-div{
+  height: 100%;
+}
+.navigation-bar-input{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.navigation-bar-right-div{
+  background-color: deeppink;
+  height: 100%;
+}
+/* .navigation-bar-right-div > ul > li{
+  
+} */
+

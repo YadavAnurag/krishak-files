@@ -1,9 +1,28 @@
 .App {
-  text-align: center;
+  padding-top: 3rem;
+} 
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: blue;
 }
 
-.main{
-  align-content: center;
-  background: rgb(32, 32, 110);
-  color: white;
+.navLinks{
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  align-items: center;
 }
+
+
+.footer div Link span:nth-child(odd) {
+  background: chartreuse;
+}
+.footer:nth-child(even) {
+  background: cyan;
+}
+

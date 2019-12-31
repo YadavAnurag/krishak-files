@@ -10,6 +10,21 @@ class About extends Component{
           Consequatur, voluptatum Lorem ipsum, dolor sit amet consectetur 
           adipisicing elit. Quidem hic repellat dolorem minus illo placeat 
           nulla aut ad molestias natus.</p>
+          <h2>About</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+          Consequatur, voluptatum Lorem ipsum, dolor sit amet consectetur 
+          adipisicing elit. Quidem hic repellat dolorem minus illo placeat 
+          nulla aut ad molestias natus.</p>
+          <h2>About</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+          Consequatur, voluptatum Lorem ipsum, dolor sit amet consectetur 
+          adipisicing elit. Quidem hic repellat dolorem minus illo placeat 
+          nulla aut ad molestias natus.</p>
+          <h2>About</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+          Consequatur, voluptatum Lorem ipsum, dolor sit amet consectetur 
+          adipisicing elit. Quidem hic repellat dolorem minus illo placeat 
+          nulla aut ad molestias natus.</p>
       </div>
     )
   }

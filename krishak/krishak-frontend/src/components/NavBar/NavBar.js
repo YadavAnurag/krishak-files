@@ -3,41 +3,30 @@ import { Link } from 'react-router-dom'
 import './NavBar.css'
 
 
-const navStyle = {
-  color: 'black',
-  textDecoration: 'none'
-}
-
 class NavBar extends Component{
   render(){
     return(
-      <div>
-        <nav className='nav'>
-          <Link to='/' style={navStyle}>
-              <h3>Krishak</h3>
-          </Link>
-          <ul className='navLinks'>
-            <Link to='/about' style={navStyle}>
-              <li>About</li>
-            </Link>
-            <Link to='/contact' style={navStyle}>
-              <li>Contact</li>
-            </Link>
-            <Link to='/footer' style={navStyle}>
-              <li>Footer</li>
-            </Link>
-            <Link to='/login' style={navStyle}>
-              <li>Login</li>
-            </Link>
-            <Link to='/signup' style={navStyle}>
-              <li>SignUp</li>
-            </Link>
+      <div className='sticky navigation-bar p-1'>
+        <div className='d-inline-block navigation-bar-brand-div'>
+          <a href="/" className="navigation-bar-brand-a">Krishak</a>
+        </div>
+        <div className="d-inline-block px-2 navigation-bar-form-div">
+          <input type="search" className="navigation-bar-input"/>
+        </div>
+        <div className="d-inline-block navigation-bar-right-div">
+          <ul className='d-inline-block'>
+            <li className='d-inline-block'>
+              <a href="/about" className="navigation-bar-brand-a">
+                Kri
+              </a>
+            </li>
+            <li className='d-inline-block'>
+              <a href="/about" className="navigation-bar-brand-a">Kri</a>
+            </li>
           </ul>
-          
-        </nav>
+        </div>
       </div>
     )
   }
 }
-
 export default NavBar
