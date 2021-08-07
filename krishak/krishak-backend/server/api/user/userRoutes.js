@@ -17,6 +17,10 @@ router.route('/users')
   .post(controller.post)
   .delete(controller.deleteUserList)
 
+router.route('/questions')
+  .get(controller.getQuestions)
+  .post(controller.postAnswers)
+
 router.route('/users/:id')
   .get(controller.getOne)
   .patch(controller.patch)

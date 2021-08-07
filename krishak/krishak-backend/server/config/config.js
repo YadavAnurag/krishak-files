@@ -1,25 +1,25 @@
 const devConfig = {
-  devConfig: true,
+  config: true,
   port: process.env.port || 6001,
   dbURI: 'mongodb://127.0.0.1/krishak'
-}
+};
 
 const prodConfig = {
-  prodConfig: false,
+  config: false,
   port: process.env.port || 6001,
   dbURI: 'https://anotherURI'
-}
+};
 
-let config = {}
+let config = {};
 
-if(devConfig.devConfig){
-  config = {...prodConfig, ...devConfig}
+if(devConfig.config){
+  config = {...prodConfig, ...devConfig};
 }else{
-  config = {...devConfig, ...prodConfig}
+  config = {...devConfig, ...prodConfig};
 }
 
-// set seedDatabase true of false
-config.seedDatabase = false
+// set seedDatabase true or false
+config.isSeedDatabase = false;
 
 
-module.exports = config   
+module.exports = config;

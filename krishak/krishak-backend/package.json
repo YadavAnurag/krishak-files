@@ -1,7 +1,7 @@
 {
   "name": "krishak-backend",
   "version": "1.0.0",
-  "description": "Backend of Krishak App",
+  "description": "Krishak App Backend",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",

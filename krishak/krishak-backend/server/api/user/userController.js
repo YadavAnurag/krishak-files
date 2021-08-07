@@ -1,4 +1,4 @@
-const User = require('./userModel')
+const User = require('./userModel');
 
 removePassword = (obj)=>{
   let modifiedUser = {...obj._doc}
@@ -35,11 +35,23 @@ exports.postLogin = (req, res, next)=>{
     'msg': 'user logged in successfully',
   })
 }
+exports.getQuestions = (req, res, next)=>{
+  res.json({
+    "msg": "get questions"
+  });
+}
+exports.postAnswers = (req, res, next)=>{
+  console.log(req.body);
+  res.json({
+    "msg": "got answers"
+  });
+}
 
 exports.getUserList = (req, res, next)=>{
   User.find({})
     .exec()
     .then((users)=>{
+      
       res.json(users.map((user)=>{
         return removePassword(user)
       }))
@@ -92,12 +104,10 @@ exports.deleteOne = (req, res, next)=>{
 
 exports.me = (req, res)=>{
   const email = req.body.email
-  console.log(email)
   User.find({
     email: email
   }).exec()
     .then((user)=>{
-      console.log(user)
       if(!user){
         res.json(new Error(`No such user`))
       }else{
